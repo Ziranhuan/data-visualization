@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+                <script type="text/javascript" src="./assets/echarts.min.js"></script>
+            <script type="text/javascript" src="./assets/china.js"></script>
+
+    
+</head>
+<body >
+    <div id="65ca62b1176b4cb99b01fe0d4abfd9a6" class="chart-container" style="width:1400px; height:720px; "></div>
+    <script>
+        var chart_65ca62b1176b4cb99b01fe0d4abfd9a6 = echarts.init(
+            document.getElementById('65ca62b1176b4cb99b01fe0d4abfd9a6'), 'light', {renderer: 'canvas', locale: 'ZH'});
+        var option_65ca62b1176b4cb99b01fe0d4abfd9a6 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "series": [
+        {
+            "type": "scatter",
+            "name": "\u5b9e\u65f6\u5929\u6c14",
+            "coordinateSystem": "geo",
+            "symbolSize": function (val) { return Math.max(22 + val[3] * 2.4, 28); },
+            "data": [
+                {
+                    "name": "\u5357\u660c",
+                    "value": [
+                        115.8582,
+                        28.6829,
+                        29.6,
+                        28.4
+                    ]
+                },
+                {
+                    "name": "\u957f\u6c99",
+                    "value": [
+                        112.9388,
+                        28.2278,
+                        30.9,
+                        25.9
+                    ]
+                },
+                {
+                    "name": "\u6b66\u6c49",
+                    "value": [
+                        114.3055,
+                        30.5928,
+                        19.9,
+                        11.1
+                    ]
+                },
+                {
+                    "name": "\u5357\u4eac",
+                    "value": [
+                        118.7969,
+                        32.0603,
+                        21.8,
+                        17.6
+                    ]
+                },
+                {
+                    "name": "\u4e0a\u6d77",
+                    "value": [
+                        121.4737,
+                        31.2304,
+                        27.1,
+                        13.3
+                    ]
+                }
+            ],
+            "label": {
+                "show": true,
+                "margin": 8,
+                "fontSize": 13,
+                "formatter": function(params){return params.name + '' + Number(params.value[2]).toFixed(1) + '\u00b0C' + '\u98ce\u901f ' + Number(params.value[3]).toFixed(1) + ' km/h';},
+                "richInheritPlainLabel": true,
+                "valueAnimation": false
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u5b9e\u65f6\u5929\u6c14"
+            ],
+            "selected": {},
+            "show": false,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10,
+            "triggerEvent": false
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "displayTransition": true,
+        "formatter": function(params){return params.name + '<br/>\u6e29\u5ea6\uff1a' + Number(params.value[2]).toFixed(1) + '\u00b0C' + '<br/>\u98ce\u901f\uff1a' + Number(params.value[3]).toFixed(1) + ' km/h';},
+        "textStyle": {
+            "fontSize": 14,
+            "richInheritPlainLabel": true
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "title": [
+        {
+            "show": true,
+            "text": "\u4e94\u57ce\u5e02\u5b9e\u65f6\u5929\u6c14\u5730\u7406\u5206\u5e03\u56fe",
+            "target": "blank",
+            "subtext": "\u989c\u8272\u8868\u793a\u6e29\u5ea6\uff0c\u70b9\u5927\u5c0f\u8868\u793a\u98ce\u901f",
+            "subtarget": "blank",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false
+        }
+    ],
+    "visualMap": {
+        "show": true,
+        "type": "continuous",
+        "min": 18.9,
+        "max": 31.9,
+        "inRange": {
+            "color": [
+                "#4C78A8",
+                "#F2CF5B",
+                "#E45756"
+            ]
+        },
+        "calculable": true,
+        "inverse": false,
+        "splitNumber": 5,
+        "dimension": 2,
+        "hoverLink": true,
+        "orient": "vertical",
+        "left": "3%",
+        "padding": 5,
+        "showLabel": true,
+        "itemWidth": 20,
+        "itemHeight": 140,
+        "borderWidth": 0
+    },
+    "geo": {
+        "map": "china",
+        "roam": true,
+        "aspectScale": 0.75,
+        "nameProperty": "name",
+        "selectedMode": false,
+        "itemStyle": {
+            "color": "#F7F5EF",
+            "borderColor": "#A0A0A0"
+        },
+        "emphasis": {
+            "itemStyle": {
+                "color": "#E4D8B4"
+            }
+        },
+        "preserveAspect": false,
+        "clip": false
+    }
+};
+        chart_65ca62b1176b4cb99b01fe0d4abfd9a6.setOption(option_65ca62b1176b4cb99b01fe0d4abfd9a6);
+    </script>
+</body>
+</html>

@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>实验六-气象特征对比与关联分析</title>
+    <script type="text/javascript" src="./assets/echarts.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 18px;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: #f6f8fb;
+        }
+        .dashboard {
+            max-width: 1380px;
+            margin: 0 auto;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+        .panel {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(31, 45, 61, 0.08);
+            padding: 10px 10px 6px;
+        }
+        .panel-radar {
+            flex: 0 0 62%;
+        }
+        .panel-heatmap {
+            flex: 0 0 38%;
+        }
+        .radar-chart-wrap {
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+        .chart-container {
+            margin: 0 auto;
+        }
+        .radar-layout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        .radar-legend {
+            width: 120px;
+            padding-right: 10px;
+        }
+        .legend-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 10px;
+            color: #475569;
+            margin-bottom: 8px;
+            background: #f8fafc;
+            transition: all 0.2s ease;
+        }
+        .legend-item.active {
+            background: #e8f0ff;
+            color: #1f2937;
+            font-weight: 600;
+            transform: translateX(-2px);
+        }
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            flex: 0 0 12px;
+        }
+        @media (max-width: 1180px) {
+            .dashboard {
+                flex-direction: column;
+            }
+            .panel-radar,
+            .panel-heatmap {
+                flex: 1 1 auto;
+                width: 100%;
+            }
+            .radar-layout {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .radar-chart-wrap {
+                width: 100%;
+            }
+            .radar-legend {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+                gap: 8px;
+            }
+            .legend-title {
+                grid-column: 1 / -1;
+                margin-bottom: 0;
+            }
+            .legend-item {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <section class="panel panel-radar">
+            <div class="radar-layout">
+                <div class="radar-chart-wrap">
+                    <div id="9b18c55997ca421bad1922bf4bf51cfc" class="chart-container" style="width:860px; height:540px; "></div>
+    <script>
+        var chart_9b18c55997ca421bad1922bf4bf51cfc = echarts.init(
+            document.getElementById('9b18c55997ca421bad1922bf4bf51cfc'), 'light', {renderer: 'canvas', locale: 'ZH'});
+        var option_9b18c55997ca421bad1922bf4bf51cfc = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "series": [
+        {
+            "type": "radar",
+            "name": "\u4e94\u57ce\u5e02\u7efc\u5408\u6c14\u8c61\u7279\u5f81",
+            "data": [
+                {
+                    "name": "\u5357\u660c",
+                    "value": [
+                        1.36,
+                        -1.28,
+                        0.54,
+                        0.82
+                    ],
+                    "lineStyle": {
+                        "width": 4.8,
+                        "opacity": 1
+                    },
+                    "areaStyle": {
+                        "opacity": 0.2
+                    },
+                    "label": {
+                        "show": true,
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                        "color": "#5470C6",
+                        "distance": 10,
+                        "backgroundColor": "rgba(255,255,255,0.85)",
+                        "padding": [
+                            2,
+                            5
+                        ],
+                        "borderRadius": 4
+                    },
+                    "symbolSize": 9,
+                    "itemStyle": {
+                        "opacity": 1
+                    },
+                    "emphasis": {
+                        "lineStyle": {
+                            "width": 5.2
+                        },
+                        "label": {
+                            "show": true,
+                            "fontSize": 16,
+                            "fontWeight": "bold",
+                            "distance": 10,
+                            "backgroundColor": "rgba(255,255,255,0.9)",
+                            "padding": [
+                                2,
+                                5
+                            ],
+                            "borderRadius": 4
+                        }
+                    }
+                },
+                {
+                    "name": "\u957f\u6c99",
+                    "value": [
+                        0.8,
+                        -0.67,
+                        0.69,
+                        0.82
+                    ],
+                    "lineStyle": {
+                        "width": 2.0,
+                        "opacity": 0.5
+                    },
+                    "areaStyle": {
+                        "opacity": 0.05
+                    },
+                    "label": {
+                        "show": false,
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                        "color": "#91CC75",
+                        "distance": 10,
+                        "backgroundColor": "rgba(255,255,255,0.85)",
+                        "padding": [
+                            2,
+                            5
+                        ],
+                        "borderRadius": 4
+                    },
+                    "symbolSize": 6,
+                    "itemStyle": {
+                        "opacity": 0.55
+                    },
+                    "emphasis": {
+                        "lineStyle": {
+                            "width": 5.2
+                        },
+                        "label": {
+                            "show": true,
+                            "fontSize": 16,
+                            "fontWeight": "bold",
+                            "distance": 10,
+                            "backgroundColor": "rgba(255,255,255,0.9)",
+                            "padding": [
+                                2,
+                                5
+                            ],
+                            "borderRadius": 4
+                        }
+                    }
+                },
+                {
+                    "name": "\u6b66\u6c49",
+                    "value": [
+                        -0.45,
+                        1.31,
+                        -1.64,
+                        -1.23
+                    ],
+                    "lineStyle": {
+                        "width": 2.0,
+                        "opacity": 0.5
+                    },
+                    "areaStyle": {
+                        "opacity": 0.05
+                    },
+                    "label": {
+                        "show": false,
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                        "color": "#FAC858",
+                        "distance": 10,
+                        "backgroundColor": "rgba(255,255,255,0.85)",
+                        "padding": [
+                            2,
+                            5
+                        ],
+                        "borderRadius": 4
+                    },
+                    "symbolSize": 6,
+                    "itemStyle": {
+                        "opacity": 0.55
+                    },
+                    "emphasis": {
+                        "lineStyle": {
+                            "width": 5.2
+                        },
+                        "label": {
+                            "show": true,
+                            "fontSize": 16,
+                            "fontWeight": "bold",
+                            "distance": 10,
+                            "backgroundColor": "rgba(255,255,255,0.9)",
+                            "padding": [
+                                2,
+                                5
+                            ],
+                            "borderRadius": 4
+                        }
+                    }
+                },
+                {
+                    "name": "\u5357\u4eac",
+                    "value": [
+                        -1.5,
+                        1.03,
+                        -0.64,
+                        -1.23
+                    ],
+                    "lineStyle": {
+                        "width": 2.0,
+                        "opacity": 0.5
+                    },
+                    "areaStyle": {
+                        "opacity": 0.05
+                    },
+                    "label": {
+                        "show": false,
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                        "color": "#EE6666",
+                        "distance": 10,
+                        "backgroundColor": "rgba(255,255,255,0.85)",
+                        "padding": [
+                            2,
+                            5
+                        ],
+                        "borderRadius": 4
+                    },
+                    "symbolSize": 6,
+                    "itemStyle": {
+                        "opacity": 0.55
+                    },
+                    "emphasis": {
+                        "lineStyle": {
+                            "width": 5.2
+                        },
+                        "label": {
+                            "show": true,
+                            "fontSize": 16,
+                            "fontWeight": "bold",
+                            "distance": 10,
+                            "backgroundColor": "rgba(255,255,255,0.9)",
+                            "padding": [
+                                2,
+                                5
+                            ],
+                            "borderRadius": 4
+                        }
+                    }
+                },
+                {
+                    "name": "\u4e0a\u6d77",
+                    "value": [
+                        -0.21,
+                        -0.38,
+                        1.05,
+                        0.82
+                    ],
+                    "lineStyle": {
+                        "width": 2.0,
+                        "opacity": 0.5
+                    },
+                    "areaStyle": {
+                        "opacity": 0.05
+                    },
+                    "label": {
+                        "show": false,
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                        "color": "#73C0DE",
+                        "distance": 10,
+                        "backgroundColor": "rgba(255,255,255,0.85)",
+                        "padding": [
+                            2,
+                            5
+                        ],
+                        "borderRadius": 4
+                    },
+                    "symbolSize": 6,
+                    "itemStyle": {
+                        "opacity": 0.55
+                    },
+                    "emphasis": {
+                        "lineStyle": {
+                            "width": 5.2
+                        },
+                        "label": {
+                            "show": true,
+                            "fontSize": 16,
+                            "fontWeight": "bold",
+                            "distance": 10,
+                            "backgroundColor": "rgba(255,255,255,0.9)",
+                            "padding": [
+                                2,
+                                5
+                            ],
+                            "borderRadius": 4
+                        }
+                    }
+                }
+            ],
+            "colorBy": "data",
+            "label": {
+                "show": true,
+                "margin": 8,
+                "richInheritPlainLabel": true,
+                "valueAnimation": false
+            },
+            "selectedMode": false,
+            "zlevel": 0,
+            "z": 2,
+            "itemStyle": {
+                "normal": {}
+            },
+            "lineStyle": {
+                "show": false,
+                "width": 2
+            },
+            "areaStyle": {
+                "opacity": 0.08
+            },
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "showContent": true,
+                "alwaysShowContent": false,
+                "showDelay": 0,
+                "hideDelay": 100,
+                "enterable": false,
+                "confine": false,
+                "appendToBody": false,
+                "transitionDuration": 0.4,
+                "displayTransition": true,
+                "textStyle": {
+                    "fontSize": 14,
+                    "richInheritPlainLabel": true
+                },
+                "borderWidth": 0,
+                "padding": 5,
+                "order": "seriesAsc"
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u4e94\u57ce\u5e02\u7efc\u5408\u6c14\u8c61\u7279\u5f81"
+            ],
+            "selected": {},
+            "show": false,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10,
+            "triggerEvent": false
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "displayTransition": true,
+        "textStyle": {
+            "fontSize": 14,
+            "richInheritPlainLabel": true
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "radar": [
+        {
+            "indicator": [
+                {
+                    "name": "\u5e73\u5747\u6700\u9ad8\u6e29",
+                    "max": 2.0,
+                    "min": -2.0
+                },
+                {
+                    "name": "\u603b\u964d\u6c34\u91cf",
+                    "max": 2.0,
+                    "min": -2.0
+                },
+                {
+                    "name": "\u5e73\u5747\u98ce\u901f",
+                    "max": 2.0,
+                    "min": -2.0
+                },
+                {
+                    "name": "\u9ad8\u6e29\u65e5\u5360\u6bd4",
+                    "max": 2.0,
+                    "min": -2.0
+                }
+            ],
+            "shape": "circle",
+            "center": [
+                "45%",
+                "54%"
+            ],
+            "radius": "72%",
+            "startAngle": 90,
+            "name": {
+                "textStyle": {
+                    "fontSize": 15,
+                    "richInheritPlainLabel": true
+                }
+            },
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": false
+                }
+            },
+            "splitArea": {
+                "show": true,
+                "areaStyle": {
+                    "opacity": 0.08
+                }
+            },
+            "axisLine": {
+                "show": true,
+                "onZero": true,
+                "onZeroAxisIndex": 0
+            }
+        }
+    ],
+    "color": [
+        "#5470C6",
+        "#91CC75",
+        "#FAC858",
+        "#EE6666",
+        "#73C0DE"
+    ],
+    "title": [
+        {
+            "show": true,
+            "text": "\u4e94\u57ce\u5e02\u6807\u51c6\u5316\u6c14\u8c61\u7279\u5f81\u96f7\u8fbe\u56fe",
+            "target": "blank",
+            "subtext": "\u70b9\u51fb\u4efb\u4e00\u57ce\u5e02\u6298\u7ebf\uff0c\u53ef\u5207\u6362\u53f3\u4fa7\u70ed\u529b\u56fe\u7126\u70b9",
+            "subtarget": "blank",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false
+        }
+    ]
+};
+        chart_9b18c55997ca421bad1922bf4bf51cfc.setOption(option_9b18c55997ca421bad1922bf4bf51cfc);
+    </script>
+                </div>
+                <aside class="radar-legend">
+                    <div class="legend-title">城市颜色对应</div>
+                    <div class="legend-item" data-city="南昌"><span class="legend-color" style="background:#5470C6;"></span><span>南昌</span></div><div class="legend-item" data-city="长沙"><span class="legend-color" style="background:#91CC75;"></span><span>长沙</span></div><div class="legend-item" data-city="武汉"><span class="legend-color" style="background:#FAC858;"></span><span>武汉</span></div><div class="legend-item" data-city="南京"><span class="legend-color" style="background:#EE6666;"></span><span>南京</span></div><div class="legend-item" data-city="上海"><span class="legend-color" style="background:#73C0DE;"></span><span>上海</span></div>
+                </aside>
+            </div>
+        </section>
+        <section class="panel panel-heatmap">
+            <div id="fa0531b6dcb44278ae656a2da9ced8ff" class="chart-container" style="width:520px; height:380px; "></div>
+    <script>
+        var chart_fa0531b6dcb44278ae656a2da9ced8ff = echarts.init(
+            document.getElementById('fa0531b6dcb44278ae656a2da9ced8ff'), 'light', {renderer: 'canvas', locale: 'ZH'});
+        var option_fa0531b6dcb44278ae656a2da9ced8ff = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "series": [
+        {
+            "type": "heatmap",
+            "name": "\u76f8\u5173\u7cfb\u6570",
+            "coordinateSystem": "cartesian2d",
+            "data": [
+                [
+                    0,
+                    0,
+                    1.0
+                ],
+                [
+                    1,
+                    0,
+                    -0.24
+                ],
+                [
+                    2,
+                    0,
+                    -0.17
+                ],
+                [
+                    3,
+                    0,
+                    0.0
+                ],
+                [
+                    0,
+                    1,
+                    -0.24
+                ],
+                [
+                    1,
+                    1,
+                    1.0
+                ],
+                [
+                    2,
+                    1,
+                    -0.2
+                ],
+                [
+                    3,
+                    1,
+                    0.0
+                ],
+                [
+                    0,
+                    2,
+                    -0.17
+                ],
+                [
+                    1,
+                    2,
+                    -0.2
+                ],
+                [
+                    2,
+                    2,
+                    1.0
+                ],
+                [
+                    3,
+                    2,
+                    0.0
+                ],
+                [
+                    0,
+                    3,
+                    0.0
+                ],
+                [
+                    1,
+                    3,
+                    0.0
+                ],
+                [
+                    2,
+                    3,
+                    0.0
+                ],
+                [
+                    3,
+                    3,
+                    0.0
+                ]
+            ],
+            "label": {
+                "show": true,
+                "margin": 8,
+                "formatter": function(params){return Number(params.value[2]).toFixed(2);},
+                "richInheritPlainLabel": true,
+                "valueAnimation": false
+            },
+            "selectedMode": false,
+            "zlevel": 0,
+            "z": 2
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u76f8\u5173\u7cfb\u6570"
+            ],
+            "selected": {},
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10,
+            "triggerEvent": false
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "displayTransition": true,
+        "formatter": function(params){return params.marker + params.name + '<br/>\u76f8\u5173\u7cfb\u6570: ' + Number(params.value[2]).toFixed(2);},
+        "textStyle": {
+            "fontSize": 14,
+            "richInheritPlainLabel": true
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "xAxis": [
+        {
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "nameTruncate": {},
+            "nameMoveOverlap": true,
+            "axisLabel": {
+                "show": true,
+                "rotate": 0,
+                "margin": 8,
+                "fontSize": 11,
+                "richInheritPlainLabel": true,
+                "valueAnimation": false
+            },
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "silent": false,
+            "triggerEvent": false,
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": false
+                }
+            },
+            "animation": true,
+            "animationThreshold": 2000,
+            "animationDuration": 1000,
+            "animationEasing": "cubicOut",
+            "animationDelay": 0,
+            "animationDurationUpdate": 300,
+            "animationEasingUpdate": "cubicOut",
+            "animationDelayUpdate": 0,
+            "data": [
+                "\u65e5\u6700\u9ad8\u6e29",
+                "\u65e5\u964d\u6c34\u91cf",
+                "\u65e5\u5747\u98ce\u901f",
+                "\u9ad8\u6e29\u65e5"
+            ]
+        }
+    ],
+    "yAxis": [
+        {
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "nameTruncate": {},
+            "nameMoveOverlap": true,
+            "axisLabel": {
+                "show": true,
+                "margin": 8,
+                "fontSize": 11,
+                "richInheritPlainLabel": true,
+                "valueAnimation": false
+            },
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "silent": false,
+            "triggerEvent": false,
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": false
+                }
+            },
+            "animation": true,
+            "animationThreshold": 2000,
+            "animationDuration": 1000,
+            "animationEasing": "cubicOut",
+            "animationDelay": 0,
+            "animationDurationUpdate": 300,
+            "animationEasingUpdate": "cubicOut",
+            "animationDelayUpdate": 0,
+            "data": [
+                "\u65e5\u6700\u9ad8\u6e29",
+                "\u65e5\u964d\u6c34\u91cf",
+                "\u65e5\u5747\u98ce\u901f",
+                "\u9ad8\u6e29\u65e5"
+            ]
+        }
+    ],
+    "title": [
+        {
+            "show": true,
+            "text": "\u57ce\u5e02\u6c14\u8c61\u6307\u6807\u76f8\u5173\u6027\u70ed\u529b\u56fe",
+            "target": "blank",
+            "subtext": "\u5f53\u524d\u57ce\u5e02\uff1a\u5357\u660c",
+            "subtarget": "blank",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false
+        }
+    ],
+    "visualMap": {
+        "show": true,
+        "type": "continuous",
+        "min": -1,
+        "max": 1,
+        "inRange": {
+            "color": [
+                "#50a3ba",
+                "#eac763",
+                "#d94e5d"
+            ]
+        },
+        "calculable": true,
+        "inverse": false,
+        "splitNumber": 5,
+        "hoverLink": true,
+        "orient": "vertical",
+        "right": "4%",
+        "padding": 5,
+        "showLabel": true,
+        "itemWidth": 0,
+        "itemHeight": 210,
+        "borderWidth": 0
+    }
+};
+        chart_fa0531b6dcb44278ae656a2da9ced8ff.setOption(option_fa0531b6dcb44278ae656a2da9ced8ff);
+    </script>
+        </section>
+    </div>
+    
+<script>
+const heatmapDataByCity = {"南昌": [[0, 0, 1.0], [1, 0, -0.24], [2, 0, -0.17], [3, 0, 0.0], [0, 1, -0.24], [1, 1, 1.0], [2, 1, -0.2], [3, 1, 0.0], [0, 2, -0.17], [1, 2, -0.2], [2, 2, 1.0], [3, 2, 0.0], [0, 3, 0.0], [1, 3, 0.0], [2, 3, 0.0], [3, 3, 0.0]], "长沙": [[0, 0, 1.0], [1, 0, -0.57], [2, 0, -0.34], [3, 0, 0.0], [0, 1, -0.57], [1, 1, 1.0], [2, 1, 0.04], [3, 1, 0.0], [0, 2, -0.34], [1, 2, 0.04], [2, 2, 1.0], [3, 2, 0.0], [0, 3, 0.0], [1, 3, 0.0], [2, 3, 0.0], [3, 3, 0.0]], "武汉": [[0, 0, 1.0], [1, 0, -0.64], [2, 0, 0.24], [3, 0, 0.7], [0, 1, -0.64], [1, 1, 1.0], [2, 1, -0.34], [3, 1, -0.49], [0, 2, 0.24], [1, 2, -0.34], [2, 2, 1.0], [3, 2, 0.38], [0, 3, 0.7], [1, 3, -0.49], [2, 3, 0.38], [3, 3, 1.0]], "南京": [[0, 0, 1.0], [1, 0, -0.65], [2, 0, 0.07], [3, 0, 0.62], [0, 1, -0.65], [1, 1, 1.0], [2, 1, -0.29], [3, 1, -0.58], [0, 2, 0.07], [1, 2, -0.29], [2, 2, 1.0], [3, 2, 0.35], [0, 3, 0.62], [1, 3, -0.58], [2, 3, 0.35], [3, 3, 1.0]], "上海": [[0, 0, 1.0], [1, 0, -0.49], [2, 0, 0.03], [3, 0, 0.0], [0, 1, -0.49], [1, 1, 1.0], [2, 1, -0.37], [3, 1, 0.0], [0, 2, 0.03], [1, 2, -0.37], [2, 2, 1.0], [3, 2, 0.0], [0, 3, 0.0], [1, 3, 0.0], [2, 3, 0.0], [3, 3, 0.0]]};
+const radarSeriesByCity = {"南昌": [{"name": "南昌", "value": [1.36, -1.28, 0.54, 0.82], "lineStyle": {"width": 4.8, "opacity": 1}, "areaStyle": {"opacity": 0.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "color": "#5470C6", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 9, "itemStyle": {"opacity": 1}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "长沙", "value": [0.8, -0.67, 0.69, 0.82], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#91CC75", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "武汉", "value": [-0.45, 1.31, -1.64, -1.23], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#FAC858", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "南京", "value": [-1.5, 1.03, -0.64, -1.23], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#EE6666", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "上海", "value": [-0.21, -0.38, 1.05, 0.82], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#73C0DE", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}], "长沙": [{"name": "南昌", "value": [1.36, -1.28, 0.54, 0.82], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#5470C6", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "长沙", "value": [0.8, -0.67, 0.69, 0.82], "lineStyle": {"width": 4.8, "opacity": 1}, "areaStyle": {"opacity": 0.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "color": "#91CC75", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 9, "itemStyle": {"opacity": 1}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "武汉", "value": [-0.45, 1.31, -1.64, -1.23], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#FAC858", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "南京", "value": [-1.5, 1.03, -0.64, -1.23], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#EE6666", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "上海", "value": [-0.21, -0.38, 1.05, 0.82], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#73C0DE", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}], "武汉": [{"name": "南昌", "value": [1.36, -1.28, 0.54, 0.82], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#5470C6", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "长沙", "value": [0.8, -0.67, 0.69, 0.82], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#91CC75", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "武汉", "value": [-0.45, 1.31, -1.64, -1.23], "lineStyle": {"width": 4.8, "opacity": 1}, "areaStyle": {"opacity": 0.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "color": "#FAC858", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 9, "itemStyle": {"opacity": 1}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "南京", "value": [-1.5, 1.03, -0.64, -1.23], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#EE6666", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "上海", "value": [-0.21, -0.38, 1.05, 0.82], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#73C0DE", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}], "南京": [{"name": "南昌", "value": [1.36, -1.28, 0.54, 0.82], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#5470C6", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "长沙", "value": [0.8, -0.67, 0.69, 0.82], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#91CC75", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "武汉", "value": [-0.45, 1.31, -1.64, -1.23], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#FAC858", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "南京", "value": [-1.5, 1.03, -0.64, -1.23], "lineStyle": {"width": 4.8, "opacity": 1}, "areaStyle": {"opacity": 0.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "color": "#EE6666", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 9, "itemStyle": {"opacity": 1}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "上海", "value": [-0.21, -0.38, 1.05, 0.82], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#73C0DE", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}], "上海": [{"name": "南昌", "value": [1.36, -1.28, 0.54, 0.82], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#5470C6", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "长沙", "value": [0.8, -0.67, 0.69, 0.82], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#91CC75", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "武汉", "value": [-0.45, 1.31, -1.64, -1.23], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#FAC858", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "南京", "value": [-1.5, 1.03, -0.64, -1.23], "lineStyle": {"width": 2.0, "opacity": 0.5}, "areaStyle": {"opacity": 0.05}, "label": {"show": false, "fontSize": 16, "fontWeight": "bold", "color": "#EE6666", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 6, "itemStyle": {"opacity": 0.55}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}, {"name": "上海", "value": [-0.21, -0.38, 1.05, 0.82], "lineStyle": {"width": 4.8, "opacity": 1}, "areaStyle": {"opacity": 0.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "color": "#73C0DE", "distance": 10, "backgroundColor": "rgba(255,255,255,0.85)", "padding": [2, 5], "borderRadius": 4}, "symbolSize": 9, "itemStyle": {"opacity": 1}, "emphasis": {"lineStyle": {"width": 5.2}, "label": {"show": true, "fontSize": 16, "fontWeight": "bold", "distance": 10, "backgroundColor": "rgba(255,255,255,0.9)", "padding": [2, 5], "borderRadius": 4}}}]};
+const heatmapMetricNames = ["日最高温", "日降水量", "日均风速", "高温日"];
+const radarChart = chart_9b18c55997ca421bad1922bf4bf51cfc;
+const heatmapChart = chart_fa0531b6dcb44278ae656a2da9ced8ff;
+
+function updateRadar(cityName) {
+    if (!radarSeriesByCity[cityName]) {
+        return;
+    }
+    radarChart.setOption({
+        series: [{
+            data: radarSeriesByCity[cityName]
+        }]
+    });
+    document.querySelectorAll('.legend-item').forEach(function (item) {
+        item.classList.toggle('active', item.getAttribute('data-city') === cityName);
+    });
+}
+
+function updateHeatmap(cityName) {
+    if (!heatmapDataByCity[cityName]) {
+        return;
+    }
+    heatmapChart.setOption({
+        title: {
+            text: "城市气象指标相关性热力图",
+            subtext: "当前城市：" + cityName
+        },
+        xAxis: {
+            data: heatmapMetricNames
+        },
+        yAxis: {
+            data: heatmapMetricNames
+        },
+        series: [{
+            name: cityName + " 指标相关性",
+            data: heatmapDataByCity[cityName]
+        }]
+    });
+}
+
+radarChart.on("click", function (params) {
+    const cityName = params.name || (params.data && params.data.name);
+    updateRadar(cityName);
+    updateHeatmap(cityName);
+});
+
+updateRadar("南昌");
+updateHeatmap("南昌");
+</script>
+
+</body>
+</html>
