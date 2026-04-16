@@ -4,7 +4,7 @@
 
 本项目是数据可视化课程的完整作业集合，从Python基础和matplotlib入门开始，逐步深入到高级数据可视化技巧。使用**Pandas**、**Matplotlib**、**Seaborn**等Python库进行多维度的数据分析和专业级可视化实践。
 
-通过5个阶段的学习，掌握从基础绘图到复杂数据分析的完整技能体系。
+通过7个阶段的学习，掌握从基础绘图到高级交互式可视化的完整技能体系。
 
 ## 🎯 学习目标
 
@@ -28,6 +28,8 @@
 | **Homework 3** | Seaborn | 统计可视化、高级图表 |
 | **Homework 4** | 综合应用 | 高级技巧、实战案例 |
 | **Homework 5** | Seaborn 进阶 | 真实数据分析、多维展示 |
+| **Homework 6** | PyEcharts | 交互式图表、地图可视化 |
+| **Homework 7** | Plotly | 高级交互、仪表板、动画 |
 
 ## 📁 项目结构
 
@@ -60,11 +62,43 @@ data-visualization/
 │   └── 报告/
 │       └── 实验四.docx                 # 实验报告
 │
-└── homework5/                          # 第五周：Seaborn进阶（南昌气象数据）
+├── homework5/                          # 第五周：Seaborn进阶（南昌气象数据）
+│   ├── README.md                       # 作业说明
+│   ├── 数据可视化W5.ipynb              # Jupyter Notebook
+│   └── 报告/
+│       └── Seaborn数据可视化实验报告.docx
+│
+├── homework6/                          # 第六周：PyEcharts交互式可视化
+│   ├── README.md                       # 作业说明
+│   ├── 数据可视化W6.py                 # PyEcharts实现代码
+│   ├── 报告/
+│   │   ├── 实验六_Pyecharts数据可视化实验报告.docx
+│   │   └── 实验六_Pyecharts数据可视化实验报告.pdf
+│   ├── 结果图片/                      # 结果截图
+│   │   ├── F1.png
+│   │   ├── F2-1.png
+│   │   └── ...
+│   └── 图表输出/                      # HTML交互式输出
+│       ├── part1_nanchang_past7days.html
+│       ├── part2_radar_heatmap.html
+│       ├── part3_forecast_timeline.html
+│       └── ...
+│
+└── homework7/                          # 第七周：Plotly高级数据可视化
     ├── README.md                       # 作业说明
-    ├── 数据可视化W5.ipynb              # Jupyter Notebook
-    └── 报告/
-        └── Seaborn数据可视化实验报告.docx
+    ├── 数据可视化W7.py                 # Plotly实现代码
+    ├── 报告/
+    │   ├── 实验七.docx
+    │   └── 实验七_报告.pdf
+    └── output/                         # HTML交互式输出
+        ├── part1_temperature_line.html
+        ├── part1_temp_humidity_scatter.html
+        ├── part2_city_compare_bar.html
+        ├── part2_city_dashboard.html
+        ├── part2_wind_rose_nanchang.html
+        ├── part3_map_snapshot.html
+        ├── part3_temperature_animation.html
+        └── assets/
 ```
 
 ## 📖 已完成作业
@@ -160,6 +194,49 @@ data-visualization/
 
 ---
 
+### ✅ [Homework 6 - PyEcharts交互式可视化](homework6/)
+
+**主题**: 掌握PyEcharts库创建高级交互式图表
+
+**学习内容**:
+- PyEcharts库架构与核心特性
+- 交互式折线图、柱状图、散点图
+- 热力图与雷达图应用
+- 地理数据可视化与地图应用
+- 时间序列与预测数据展示
+- 自定义主题与配色方案
+- HTML输出与交互功能
+- 多维度综合分析展示
+
+**数据源**: 南昌市真实气象数据与预测数据  
+**格式**: Python脚本 (.py)  
+**完成日期**: 2026年4月9日  
+📂 [查看完整说明 →](homework6/README.md)
+
+---
+
+### ✅ [Homework 7 - Plotly高级数据可视化](homework7/)
+
+**主题**: Plotly库完整应用与交互式仪表板构建
+
+**学习内容**:
+- Plotly库架构与高级特性
+- 交互式散点图与气泡图
+- 多维数据关系展示
+- 城市对标分析与对比图表
+- 综合数据仪表板设计与布局
+- 风玫瑰图与极坐标图应用
+- 地理位置与地图可视化
+- 时间序列动画效果与时间滑块
+- 发布级quality输出与优化
+
+**数据源**: 南昌市多城市气象数据对比  
+**格式**: Python脚本 (.py)  
+**完成日期**: 2026年4月16日  
+📂 [查看完整说明 →](homework7/README.md)
+
+---
+
 ## 💻 快速开始
 
 ### 环境配置
@@ -207,6 +284,8 @@ jupyter notebook 数据可视化W3.ipynb
 | HW3 | Seaborn入门 | 统计图表、美化 | ⭐⭐ | .ipynb |
 | HW4 | 高级应用 | 复杂图表、技巧 | ⭐⭐⭐ | .py |
 | HW5 | 实战项目 | 真实数据、多维 | ⭐⭐⭐ | .ipynb |
+| HW6 | PyEcharts交互 | 交互图表、地图 | ⭐⭐⭐ | .py |
+| HW7 | Plotly高级 | 动画、仪表板 | ⭐⭐⭐⭐ | .py |
 
 ## 📚 关键技术点
 
@@ -227,6 +306,8 @@ jupyter notebook 数据可视化W3.ipynb
 3. **第3周** - Seaborn让复杂图表更简单，专注数据分析
 4. **第4周** - 掌握高级技巧，能处理复杂需求
 5. **第5周** - 综合应用，从数据到洞察的完整流程
+6. **第6周** - PyEcharts跨界应用，交互式与地理可视化
+7. **第7周** - Plotly终极应用，构建专业级交互式仪表板
 
 ## 🔗 参考资源
 
@@ -284,7 +365,7 @@ jupyter notebook 数据可视化W3.ipynb
 
 ---
 
-**项目状态**: ✅ 5/5 作业完成  
-**最后更新**: 2026年4月2日  
+**项目状态**: ✅ 7/7 作业完成  
+**最后更新**: 2026年4月16日  
 **维护者**: Ziranhuan
 
